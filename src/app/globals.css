@@ -1,26 +1,189 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f7f4ef;
+  --paper: #fdfbf8;
+  --ink: #1c1917;
+  --border: #e2ddd6;
+  --muted: #8a8278;
+  --dim: #c4bdb4;
+
+  --sidebar-w: 295px;
+  --sidebar-bg: #141416;
+  --sidebar-border: #27272a;
+
+  --c1: #1d4ed8; /* Blue */
+  --c2: #b45309; /* Amber */
+  --c3: #047857; /* Emerald */
+  --c4: #be123c; /* Crimson */
+  --c5: #6d28d9; /* Violet */
+  --c6: #0e7490; /* Cyan */
+  --c7: #c2410c; /* Rust */
+  --yellow: #fbbf24; /* Gold */
+  --numpy-blue: #4dabf7;
+
+  --code-bg: #18181b;
+  --code-text: #f4f4f5;
+
+  --sans: var(--font-sans), 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif: var(--font-serif), 'Fraunces', Georgia, serif;
+  --mono: var(--font-mono), 'DM Mono', monospace;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 14.5px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  min-height: 100vh;
 }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #c4bdb4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8a8278;
+}
+
+/* Fonts helper classes */
+.font-editorial {
+  font-family: var(--serif);
+}
+.font-code {
+  font-family: var(--mono);
+}
+
+/* Card & Surface utilities */
+.card-paper {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.card-dark {
+  background: #18181b;
+  border: 1px solid #27272a;
+  color: #f4f4f5;
+}
+
+/* Code styling tags */
+.code-inline {
+  font-family: var(--mono);
+  font-size: 13px;
+  background: #27272a;
+  color: #fbbf24;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* Note Callouts */
+.callout {
+  border-left-width: 4px;
+  padding: 16px 20px;
+  border-radius: 0 8px 8px 0;
+  margin: 18px 0;
+}
+.callout-tip {
+  border-left-color: var(--c3);
+  background: rgba(4, 120, 87, 0.07);
+}
+.callout-danger {
+  border-left-color: var(--c4);
+  background: rgba(190, 18, 60, 0.07);
+}
+.callout-warning {
+  border-left-color: var(--c2);
+  background: rgba(180, 83, 9, 0.07);
+}
+.callout-info {
+  border-left-color: var(--c1);
+  background: rgba(29, 78, 216, 0.07);
+}
+.callout-gold {
+  border-left-color: var(--yellow);
+  background: rgba(251, 191, 36, 0.12);
+}
+
+/* Slicer Grid Cells */
+.slicer-cell {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #3f3f46;
+  border-radius: 4px;
+  background: #27272a;
+  color: #d4d4d8;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+.slicer-cell.selected {
+  background: #fbbf24 !important;
+  color: #09090b !important;
+  border-color: #f59e0b !important;
+  transform: scale(1.08);
+  box-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
+  z-index: 2;
+}
+
+/* Matrix Axis cell highlight */
+.matrix-cell-axis0 {
+  background: rgba(29, 78, 216, 0.25) !important;
+  border-color: #3b82f6 !important;
+  color: #93c5fd !important;
+}
+.matrix-cell-axis1 {
+  background: rgba(4, 120, 87, 0.25) !important;
+  border-color: #10b981 !important;
+  color: #a7f3d0 !important;
+}
+
+/* Interactive Tabs */
+.tab-btn {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.05);
+  color: #a1a1aa;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #f4f4f5;
+}
+.tab-btn.active {
+  background: #fbbf24;
+  color: #18181b;
+  border-color: #f59e0b;
+  font-weight: 700;
+}
+
+/* Syntax highlight helper classes */
+.hl-kw { color: #f43f5e; font-weight: 600; }
+.hl-var { color: #38bdf8; }
+.hl-func { color: #fbbf24; }
+.hl-str { color: #4ade80; }
+.hl-num { color: #fb923c; }
+.hl-comment { color: #71717a; font-style: italic; }
