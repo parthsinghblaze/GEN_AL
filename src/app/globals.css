@@ -187,3 +187,69 @@ body {
 .hl-str { color: #4ade80; }
 .hl-num { color: #fb923c; }
 .hl-comment { color: #71717a; font-style: italic; }
+
+/* =========================================================================
+   PrismJS Syntax Highlighting Theme (Vibrant Studio Dark)
+   ========================================================================= */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #71717a !important;
+  font-style: italic;
+}
+
+.token.punctuation {
+  color: #a1a1aa !important;
+}
+
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #f43f5e !important;
+}
+
+.token.boolean,
+.token.number {
+  color: #fb923c !important;
+  font-weight: 600;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #4ade80 !important;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #38bdf8 !important;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #c084fc !important;
+  font-weight: 700;
+}
+
+.token.function,
+.token.class-name {
+  color: #fbbf24 !important;
+  font-weight: 600;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #67e8f9 !important;
+}
+

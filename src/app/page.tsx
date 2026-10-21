@@ -52,12 +52,37 @@ export default function Home() {
       ],
       ctaText: 'Explore Pandas Notes →',
     },
+    {
+      id: 'genai',
+      title: 'Gen AI Masterclass (Sections 14 & 15)',
+      subtitle: 'Section 14: Core Foundations & Section 15: API Setup & Integration',
+      href: '/genai/section-14',
+      icon: '✨',
+      version: 'Sec 14 & 15',
+      badgeColor: 'bg-purple-600/10 text-purple-700 border-purple-600/20',
+      accentColor: 'text-purple-700',
+      borderHover: 'hover:border-purple-600/40 hover:shadow-purple-500/10',
+      description:
+        'A comprehensive visual and architectural guide to modern Generative AI. Explore autoregressive next-token loops, custom Python BPE tokenizers, 2D semantic embedding vectors, sinusoidal waves, multi-head attention, and OpenAI API developer integration.',
+      topics: [
+        '[Sec 14] Understanding LLMs & GPT Architecture Stack',
+        '[Sec 14] Autoregressive Next-Token Sampling Lab',
+        '[Sec 14] Fundamentals of Tokenization & Custom BPE Python Lab',
+        '[Sec 14] Transformer Attention Paper & RNN Parallelism',
+        '[Sec 14] Vector Embeddings & 2D Semantic Hyperspace',
+        '[Sec 14] Role of Positional Encoding & Sinusoidal Waves',
+        '[Sec 14] Multi-Head Attention QKV Matrix Heatmap Lab',
+        '[Sec 15] OpenAI Account Setup, Project Budgets & Secret Keys',
+        '[Sec 15] Python SDK v1.x & Zero-Leak Security Architecture',
+      ],
+      ctaText: 'Explore Gen AI Notes (Sec 14 & 15) →',
+    },
   ];
 
   const quickPillars = [
     { name: 'Contiguous C-Memory', desc: 'No PyObject wrapping overhead' },
-    { name: 'SIMD Vectorization', desc: '50-100x hardware speedups' },
-    { name: 'Label Alignment', desc: 'Zero accidental row mismatch' },
+    { name: 'Transformer Attention', desc: 'O(1) parallel GPU execution' },
+    { name: 'Byte-Pair BPE', desc: 'Zero-OOV subword tokenization' },
     { name: 'PyArrow 2.0 Backend', desc: 'Up to 70% memory reduction' },
   ];
 
@@ -108,11 +133,11 @@ export default function Home() {
             </p>
           </div>
           <span className="font-mono text-xs font-bold bg-zinc-200 text-zinc-800 px-3 py-1 rounded-full">
-            2 Modules Ready
+            3 Modules Ready
           </span>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {notesModules.map((mod) => (
             <div
               key={mod.id}

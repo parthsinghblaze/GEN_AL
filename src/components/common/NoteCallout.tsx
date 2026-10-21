@@ -5,13 +5,15 @@ type CalloutType = 'tip' | 'danger' | 'warning' | 'info' | 'gold';
 interface NoteCalloutProps {
   type?: CalloutType;
   title?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  text?: string;
 }
 
 export default function NoteCallout({
   type = 'info',
   title,
   children,
+  text,
 }: NoteCalloutProps) {
   const styles: Record<CalloutType, { border: string; bg: string; text: string; icon: string; defaultTitle: string }> = {
     tip: {
@@ -62,6 +64,7 @@ export default function NoteCallout({
         <span className={current.text}>{title || current.defaultTitle}</span>
       </div>
       <div className="text-[13.5px] leading-relaxed text-[#27272a] space-y-2">
+        {text && <p>{text}</p>}
         {children}
       </div>
     </div>

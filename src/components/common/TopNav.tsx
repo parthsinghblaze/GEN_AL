@@ -10,6 +10,7 @@ export default function TopNav() {
     { label: 'Overview Hub', href: '/', icon: '🏠' },
     { label: 'NumPy Masterclass', href: '/numpy', icon: '🔢', badge: 'v2.0' },
     { label: 'Pandas Masterclass', href: '/pandas', hrefBadge: 'Series & DF', icon: '🐼', badge: 'v2.2' },
+    { label: 'Gen AI Masterclass', href: '/genai', hrefBadge: 'Section 14', icon: '✨', badge: 'Sec 14' },
   ];
 
   return (
@@ -28,7 +29,7 @@ export default function TopNav() {
         {/* Navigation Tabs */}
         <nav className="flex items-center space-x-1 sm:space-x-2">
           {navItems.map((item) => {
-            const isActive = pathname === item.href;
+            const isActive = item.href === '/' ? pathname === '/' : pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}
