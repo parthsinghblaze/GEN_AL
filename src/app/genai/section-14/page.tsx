@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import TopNav from '@/components/common/TopNav';
 import ProgressBar from '@/components/common/ProgressBar';
 import Sidebar, { NavGroup } from '@/components/common/Sidebar';
@@ -113,27 +112,6 @@ export default function Section14Page() {
             {/* 10. Checkpoints & Flashcards */}
             <Section14CheckpointsQuiz />
 
-            {/* Next Section Banner Card */}
-            <div className="card-paper rounded-2xl p-6 sm:p-8 border-2 border-purple-300 bg-gradient-to-r from-purple-50 via-white to-amber-50 shadow-md flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase font-bold text-purple-700 bg-purple-100/80 px-2.5 py-0.5 rounded-full border border-purple-200">
-                  Up Next // Section 15
-                </span>
-                <h3 className="font-editorial text-xl sm:text-2xl font-bold text-zinc-900">
-                  Ready to Build? Proceed to Section 15: API Setup & Integration
-                </h3>
-                <p className="text-xs text-zinc-600 max-w-xl">
-                  Transition from theoretical transformer architecture to production API engineering. Configure your OpenAI developer account, manage spend limits, and initialize official SDKs.
-                </p>
-              </div>
-
-              <Link
-                href="/genai/section-15"
-                className="inline-flex items-center space-x-2 px-5 py-3 rounded-xl bg-purple-700 text-white font-mono text-xs font-bold hover:bg-purple-800 shadow-md transition-all self-start sm:self-auto shrink-0"
-              >
-                <span>Explore Section 15 →</span>
-              </Link>
-            </div>
           </div>
         </main>
       </div>

@@ -11,11 +11,25 @@ export default function GenAiHubPage() {
       defaultOpen: true,
       items: [
         { id: 'sec-overview', num: '00', label: 'Masterclass Overview' },
+        { id: 'sec-python-setup-card', num: 'PY', label: 'Python Project & venv Setup' },
         { id: 'sec-14-card', num: '14', label: 'Section 14: Core Foundations' },
-        { id: 'sec-15-card', num: '15', label: 'Section 15: API Integration' },
-        { id: 'sec-roadmap', num: '16', label: 'Full Course Roadmap' },
+        { id: 'sec-15-card', num: '15', label: 'Section 15: Invoking OpenAI APIs' },
+        { id: 'sec-16-card', num: '16', label: 'Section 16: Advanced Prompt Engineering' },
       ],
     },
+  ];
+
+  const pythonSetupTopics = [
+    '01. Why Virtual Environments Matter (Global Collision vs Sandboxing)',
+    '02. Interactive Multi-OS CLI Terminal Simulator (PowerShell, CMD, Bash, uv)',
+    '03. Activating & Deactivating venv (+ Windows ExecutionPolicy Gotcha)',
+    '04. Production Directory Anatomy & Interactive File Inspector',
+    '05. Zero-Leak Security Architecture (.env vs .env.example vs .gitignore)',
+    '06. Modern Package Management: pip vs Astral uv vs conda vs poetry',
+    '07. VS Code & IDE Integration (Selecting .venv Python Interpreter)',
+    '08. Interactive Troubleshooting Wizard (5 Real-World Traps & Fixes)',
+    '09. Production Starter Boilerplate (main.py, config.py, .env, .gitignore)',
+    '10. Knowledge Checkpoint & Project Readiness Interactive Quiz',
   ];
 
   const sec14Topics = [
@@ -32,11 +46,9 @@ export default function GenAiHubPage() {
   ];
 
   const sec15Topics = [
-    '01. Configuring your OpenAI Account (Developer Platform)',
-    '02. Project Scoping & Spend Limit Safeguards ($5–$150/mo)',
-    '03. Zero-Leak Credential Security (.env + .gitignore)',
-    '04. Live API Handshake & Model Verification Ping',
-    '05. Official Python SDK v1.x Setup & Error Handling',
+    '01. Invoking OpenAI APIs (Developer Platform, Keys, .env, and SDK v1.x)',
+    '02. Creating & Setting up Google Gemini Account (AI Studio, GEMINI_API_KEY, google-genai SDK)',
+    '03. Using Google Gemini with OpenAI SDK (OpenAI-Compatible base_url Endpoint)',
   ];
 
   return (
@@ -65,7 +77,7 @@ export default function GenAiHubPage() {
                   Curriculum Hub
                 </span>
                 <span className="font-mono text-xs uppercase font-bold tracking-widest bg-purple-700/10 text-purple-800 border border-purple-700/20 px-3 py-1 rounded-full">
-                  Sections 14 &amp; 15 Available
+                  3 Modules Available
                 </span>
                 <span className="font-mono text-xs uppercase font-bold tracking-widest bg-emerald-700/10 text-emerald-800 border border-emerald-700/20 px-3 py-1 rounded-full">
                   Interactive Simulators
@@ -77,16 +89,16 @@ export default function GenAiHubPage() {
               </h1>
 
               <p className="text-base sm:text-lg text-[#71717a] font-normal leading-relaxed max-w-3xl mb-8">
-                Welcome to the Generative AI study guide. Select a section below to enter its dedicated workspace with complete component breakdowns, interactive visualizers, and code implementations.
+                Welcome to the Generative AI study guide. Select a module below to enter its dedicated workspace with complete architectural breakdowns, interactive visualizers, and production code implementations.
               </p>
 
               {/* Course Highlights Grid */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-6 border-t border-[#e2ddd6]">
                 {[
+                  { val: 'Python & venv', label: 'Prerequisite', desc: 'Virtual Envs, uv, .env & VS Code' },
                   { val: 'Section 14', label: 'Core Foundation', desc: 'LLMs, GPT, Attention, Vectors' },
                   { val: 'Section 15', label: 'API Setup', desc: 'OpenAI, Keys, Spend Caps' },
-                  { val: '5 Simulators', label: 'Interactive Labs', desc: 'Temperature, BPE, Waves, Heatmap' },
-                  { val: 'Production', label: 'Code Standards', desc: 'PyTorch & Official OpenAI SDK' },
+                  { val: 'Interactive', label: 'Developer Labs', desc: 'CLI, BPE, Waves, QKV Heatmap' },
                 ].map((item, idx) => (
                   <div key={idx} className="p-3.5 rounded-xl bg-white/70 border border-[#e2ddd6]/80 backdrop-blur-sm">
                     <div className="font-editorial text-xl font-bold text-purple-700">{item.val}</div>
@@ -102,15 +114,75 @@ export default function GenAiHubPage() {
               <div className="flex items-center justify-between border-b border-[#e2ddd6] pb-3">
                 <div>
                   <h2 className="font-editorial text-2xl font-bold text-zinc-900">
-                    Available Course Sections
+                    Available Course Modules
                   </h2>
                   <p className="text-xs text-zinc-500 font-mono mt-0.5">
                     Click a section card below to open its dedicated study guide and sidebar topic index.
                   </p>
                 </div>
                 <span className="font-mono text-xs font-bold bg-purple-100 text-purple-800 px-3 py-1 rounded-full border border-purple-200">
-                  2 Sections Ready
+                  3 Modules Ready
                 </span>
+              </div>
+
+              {/* PYTHON PROJECT SETUP CARD */}
+              <div id="sec-python-setup-card" className="card-paper rounded-3xl p-7 sm:p-9 border-2 border-amber-300 hover:border-amber-600 transition-all duration-300 hover:shadow-xl bg-white relative overflow-hidden group">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-5">
+                  <div className="space-y-1.5">
+                    <div className="flex items-center space-x-2">
+                      <span className="font-mono text-xs uppercase font-bold tracking-wider text-amber-800 bg-amber-50 border border-amber-200 px-3 py-0.5 rounded-full">
+                        Prerequisites // Developer Foundations
+                      </span>
+                      <span className="font-mono text-[10px] text-purple-700 font-bold bg-purple-50 border border-purple-200 px-2 py-0.5 rounded-full">
+                        Essential Setup
+                      </span>
+                    </div>
+
+                    <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-zinc-900 group-hover:text-amber-700 transition-colors">
+                      How to Start a Python Project (venv, uv, .env &amp; Tooling)
+                    </h3>
+
+                    <p className="text-xs font-mono text-zinc-500">
+                      Virtual Environments, Modern Package Management, Secret Credentials &amp; IDE Integration
+                    </p>
+                  </div>
+
+                  <div className="w-12 h-12 rounded-2xl bg-amber-500/10 text-amber-700 flex items-center justify-center text-2xl shrink-0 border border-amber-200">
+                    🐍
+                  </div>
+                </div>
+
+                <p className="text-sm text-zinc-600 leading-relaxed mb-6">
+                  Before diving into foundation models or calling cloud APIs, establish an immutable development workflow. Master virtual environment sandboxing (<code className="code-inline">venv</code> and high-speed <code className="code-inline">uv</code>), resolve the Windows PowerShell execution policy trap, implement zero-leak secret security (<code className="code-inline">.env</code> + <code className="code-inline">.gitignore</code>), and configure VS Code to eliminate missing import warnings.
+                </p>
+
+                {/* Subtopics Checklist */}
+                <div className="bg-zinc-50 p-5 rounded-2xl border border-zinc-200/80 mb-6">
+                  <div className="font-mono text-[10px] uppercase font-bold text-zinc-500 tracking-wider mb-3">
+                    Included Subtopics &amp; Interactive Diagnostic Labs:
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-2 text-xs font-mono text-zinc-700">
+                    {pythonSetupTopics.map((t, idx) => (
+                      <div key={idx} className="flex items-center space-x-2">
+                        <span className="text-amber-600 font-bold">✓</span>
+                        <span className="truncate">{t}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Action CTA */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+                  <div className="text-xs text-zinc-500 font-mono">
+                    Includes Interactive CLI Simulator + 5-Trap Troubleshooting Wizard
+                  </div>
+                  <Link
+                    href="/genai/python-setup"
+                    className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-amber-600 hover:bg-amber-700 text-white font-mono text-xs font-bold shadow-md hover:shadow-lg transition-all active:scale-95"
+                  >
+                    <span>Open Python &amp; venv Guide →</span>
+                  </Link>
+                </div>
               </div>
 
               {/* SECTION 14 CARD */}
@@ -187,7 +259,7 @@ export default function GenAiHubPage() {
                     </div>
 
                     <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-zinc-900 group-hover:text-emerald-700 transition-colors">
-                      API Setup &amp; Production Integration
+                      Invoking OpenAI APIs
                     </h3>
 
                     <p className="text-xs font-mono text-zinc-500">
@@ -233,24 +305,48 @@ export default function GenAiHubPage() {
                 </div>
               </div>
 
-              {/* SECTION 16 ROADMAP PREVIEW */}
-              <div id="sec-roadmap" className="card-paper rounded-2xl p-6 border border-dashed border-zinc-300 bg-zinc-50/50 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="space-y-1">
-                  <div className="flex items-center space-x-2">
-                    <span className="font-mono text-[10px] uppercase font-bold text-zinc-500 bg-zinc-200 px-2 py-0.5 rounded">
-                      Roadmap // Upcoming
-                    </span>
-                    <span className="font-mono text-xs font-bold text-zinc-700">
-                      Section 16: Prompt Engineering, Tool Calling &amp; RAG
-                    </span>
+              {/* SECTION 16 CARD */}
+              <div id="sec-16-card" className="card-paper rounded-3xl p-7 sm:p-9 border-2 border-purple-300 hover:border-purple-600 transition-all duration-300 hover:shadow-xl bg-white relative overflow-hidden group">
+                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-5">
+                  <div className="space-y-1.5">
+                    <div className="flex items-center space-x-2">
+                      <span className="font-mono text-xs uppercase font-bold tracking-wider text-purple-800 bg-purple-50 border border-purple-200 px-3 py-0.5 rounded-full">
+                        Section 16 // Active Module
+                      </span>
+                      <span className="font-mono text-[10px] text-amber-700 font-bold bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-full">
+                        Prompt Architecture
+                      </span>
+                    </div>
+
+                    <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-zinc-900 group-hover:text-purple-700 transition-colors">
+                      Advanced Prompt Engineering Techniques
+                    </h3>
+
+                    <p className="text-xs font-mono text-zinc-500">
+                      Few-Shot Exemplars, Chain-of-Thought (CoT), System Framing &amp; Delimiters
+                    </p>
                   </div>
-                  <p className="text-xs text-zinc-500">
-                    Structured outputs with Pydantic, Function Calling, Retrieval-Augmented Generation with Vector DBs.
-                  </p>
+
+                  <div className="w-12 h-12 rounded-2xl bg-purple-900/10 text-purple-700 flex items-center justify-center text-2xl shrink-0 border border-purple-200">
+                    ✨
+                  </div>
                 </div>
-                <span className="font-mono text-[11px] text-zinc-400 font-bold shrink-0">
-                  Coming Soon
-                </span>
+
+                <p className="text-sm text-zinc-600 leading-relaxed mb-6">
+                  Elevate model reliability and reasoning beyond naive zero-shot queries. Master few-shot exemplars, Chain-of-Thought (CoT), self-consistency sampling, directional stimulus, and production prompt architecture.
+                </p>
+
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-2">
+                  <div className="text-xs text-zinc-500 font-mono">
+                    Ready for curriculum topics &amp; interactive examples
+                  </div>
+                  <Link
+                    href="/genai/section-16"
+                    className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-xl bg-purple-700 hover:bg-purple-800 text-white font-mono text-xs font-bold shadow-md hover:shadow-lg transition-all active:scale-95"
+                  >
+                    <span>Open Section 16 Notes →</span>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

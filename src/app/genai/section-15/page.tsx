@@ -3,24 +3,19 @@ import TopNav from '@/components/common/TopNav';
 import ProgressBar from '@/components/common/ProgressBar';
 import Sidebar, { NavGroup } from '@/components/common/Sidebar';
 import Section15OpenAiConfig from '@/components/genai/Section15OpenAiConfig';
+import Section15GeminiConfig from '@/components/genai/Section15GeminiConfig';
+import Section15GeminiOpenAiCompat from '@/components/genai/Section15GeminiOpenAiCompat';
 
 export default function Section15Page() {
   const navGroups: NavGroup[] = [
     {
-      title: '15.1 // Account Setup & Credentials',
+      title: 'Invoking AI APIs',
       badge: 'Active',
       defaultOpen: true,
       items: [
-        { id: 'sec-openai-config', num: '01', label: 'Configuring your OpenAI Account' },
-      ],
-    },
-    {
-      title: '15.2 // Upcoming Integration Modules',
-      badge: 'Roadmap',
-      defaultOpen: true,
-      items: [
-        { id: 'sec-openai-config', num: '02', label: 'First Chat Completion & Streaming (Preview)' },
-        { id: 'sec-openai-config', num: '03', label: 'Structured JSON Outputs & Tools (Preview)' },
+        { id: 'sec-openai-config', num: '01', label: 'Invoking OpenAI APIs' },
+        { id: 'sec-gemini-config', num: '02', label: 'Setting up Google Gemini Account' },
+        { id: 'sec-openai-compat', num: '03', label: 'Using Gemini with OpenAI SDK' },
       ],
     },
   ];
@@ -31,28 +26,47 @@ export default function Section15Page() {
       <TopNav />
 
       <div className="flex-1 flex w-full">
-        {/* Accordion Sidebar strictly for Section 15 Subtopics */}
+        {/* Flat Sidebar strictly for Section 15 */}
         <Sidebar
           title="Section 15"
           version="API Setup"
-          subtitle="API Setup & Production Integration"
+          subtitle="OpenAI & Gemini APIs"
           groups={navGroups}
+          accordion={false}
         />
 
         {/* Main Content Area */}
         <main className="flex-1 lg:pl-[280px] w-full min-w-0">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-12">
-            {/* Breadcrumb / Back Link */}
-            <div className="flex items-center justify-between border-b border-[#e2ddd6] pb-3 text-xs font-mono">
-              <Link
-                href="/genai/section-14"
-                className="inline-flex items-center space-x-1.5 text-zinc-500 hover:text-purple-700 transition-colors"
-              >
-                <span>← Back to Section 14: Core Foundation of Gen AI</span>
-              </Link>
-              <span className="text-purple-700 font-bold bg-purple-50 border border-purple-200 px-2.5 py-0.5 rounded-full">
-                Section 15 // Active Module
-              </span>
+            {/* Breadcrumb / Section Switcher Bar */}
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e2ddd6] pb-3 text-xs font-mono">
+              <div className="flex items-center space-x-2">
+                <Link
+                  href="/genai"
+                  className="text-zinc-500 hover:text-purple-700 transition-colors"
+                >
+                  GenAI Hub
+                </Link>
+                <span className="text-zinc-400">/</span>
+                <span className="text-purple-700 font-bold bg-purple-50 border border-purple-200 px-2.5 py-0.5 rounded-full">
+                  Section 15 // Invoking AI APIs
+                </span>
+              </div>
+
+              <div className="flex items-center space-x-3 text-xs">
+                <Link
+                  href="/genai/python-setup"
+                  className="text-zinc-600 hover:text-purple-700 font-semibold transition-colors"
+                >
+                  🐍 Python &amp; venv Guide →
+                </Link>
+                <Link
+                  href="/genai/section-14"
+                  className="text-zinc-600 hover:text-purple-700 font-semibold transition-colors"
+                >
+                  ← Section 14 (Foundations)
+                </Link>
+              </div>
             </div>
 
             {/* Section 15 Hero Banner */}
@@ -64,28 +78,28 @@ export default function Section15Page() {
                   Section 15 // Module
                 </span>
                 <span className="font-mono text-xs uppercase font-bold tracking-widest bg-emerald-700/10 text-emerald-800 border border-emerald-700/20 px-3 py-1 rounded-full">
-                  API Setup & Integration
+                  Invoking AI APIs
                 </span>
                 <span className="font-mono text-xs uppercase font-bold tracking-widest bg-purple-700/10 text-purple-800 border border-purple-700/20 px-3 py-1 rounded-full">
-                  OpenAI SDK v1.x+
+                  OpenAI &amp; Google Gemini
                 </span>
               </div>
 
               <h1 className="font-editorial text-3xl sm:text-5xl font-black tracking-tight text-[#1c1917] mb-4 leading-tight">
-                API Setup &amp; <span className="text-purple-700">Production Integration</span>
+                Invoking <span className="text-purple-700">AI APIs</span>
               </h1>
               
               <p className="text-base sm:text-lg text-[#71717a] font-normal leading-relaxed max-w-3xl mb-6">
-                Bridge mathematical foundation models with production software applications. Master platform onboarding, project budget containment, secret credential lifecycles, and zero-leak environment architectures.
+                Bridge mathematical foundation models with production software applications. Master platform onboarding, API key lifecycle management, and zero-leak environment configurations across OpenAI and Google Gemini.
               </p>
 
               {/* Quick Pillars */}
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-6 border-t border-[#e2ddd6]">
                 {[
-                  { label: 'Platform Portal', val: 'platform.openai.com' },
-                  { label: 'Key Format', val: 'sk-proj-...' },
-                  { label: 'Credential Storage', val: '.env.local' },
-                  { label: 'SDK Client', val: 'openai>=1.0.0' },
+                  { label: 'OpenAI Portal', val: 'platform.openai.com' },
+                  { label: 'Gemini Portal', val: 'aistudio.google.com' },
+                  { label: 'Secret Storage', val: '.env (gitignored)' },
+                  { label: 'SDK Clients', val: 'openai & google-genai' },
                 ].map((p, idx) => (
                   <div key={idx} className="p-3.5 rounded-xl bg-white/70 border border-[#e2ddd6]/80 backdrop-blur-sm">
                     <div className="font-mono text-xs font-bold text-zinc-900">{p.val}</div>
@@ -95,30 +109,16 @@ export default function Section15Page() {
               </div>
             </header>
 
-            {/* Topic 1: Configuring your OpenAI Account */}
+            {/* Topic 01: Configuring your OpenAI Account & Interactive Sandbox */}
             <Section15OpenAiConfig />
 
-            {/* Back to Section 14 Navigation Card */}
-            <div className="card-paper rounded-2xl p-6 sm:p-8 border border-[#e2ddd6] bg-zinc-50/70 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="space-y-1">
-                <span className="font-mono text-[10px] uppercase font-bold text-zinc-500 bg-zinc-200/80 px-2 py-0.5 rounded">
-                  Need a refresher on Transformer Architecture?
-                </span>
-                <h3 className="font-editorial text-lg sm:text-xl font-bold text-zinc-900">
-                  Section 14: Core Foundation of Generative AI
-                </h3>
-                <p className="text-xs text-zinc-600 max-w-xl">
-                  Revisit Tokenization, Subword BPE, Vector Embeddings, Positional Encodings, and Multi-Head Attention mechanisms.
-                </p>
-              </div>
+            {/* Topic 02: Creating and Setting up Google Gemini Account & SDK */}
+            <Section15GeminiConfig />
 
-              <Link
-                href="/genai/section-14"
-                className="inline-flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-zinc-900 text-white font-mono text-xs font-bold hover:bg-black shadow transition-all self-start sm:self-auto shrink-0"
-              >
-                <span>← Back to Section 14</span>
-              </Link>
-            </div>
+            {/* Topic 03: Using Google Gemini with OpenAI-Compatible APIs */}
+            <Section15GeminiOpenAiCompat />
+
+
           </div>
         </main>
       </div>

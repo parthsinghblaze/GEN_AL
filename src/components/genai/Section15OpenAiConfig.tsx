@@ -86,27 +86,27 @@ __pycache__/
       {/* Group Title Banner */}
       <div className="border-b-2 border-purple-800/40 pb-3 pt-6 flex items-center justify-between">
         <span className="font-mono text-xs font-bold uppercase tracking-widest bg-purple-900/40 text-purple-300 border border-purple-700/50 px-3.5 py-1.5 rounded-lg shadow-sm">
-          Section 15 // API Setup & Integration
+          Section 15 // Invoking OpenAI APIs
         </span>
         <span className="font-mono text-[11px] text-zinc-500 font-bold">
           Developer Cloud Platform
         </span>
       </div>
 
-      {/* 01. Configuring your OpenAI Account */}
+      {/* 01. Invoking OpenAI APIs */}
       <section id="sec-openai-config" className="space-y-6 scroll-mt-24">
         {/* Header */}
         <div className="flex items-start space-x-3">
           <span className="font-editorial text-3xl font-black text-purple-700">01</span>
           <div>
             <span className="font-mono text-xs uppercase font-bold text-[#71717a] tracking-wider">
-              15.1 // Account Setup & Credentials
+              OpenAI Developer Account
             </span>
             <h2 className="font-editorial text-2xl sm:text-3xl font-bold text-[#1c1917]">
-              Configuring your OpenAI Account
+              Invoking OpenAI APIs
             </h2>
             <p className="text-xs text-[#71717a] font-mono mt-1">
-              Platform onboarding, Projects isolation, Usage limits, Secret API key lifecycle, and zero-leak environment variables.
+              OpenAI Developer Platform onboarding, projects isolation, usage limits, secret API key lifecycle, and zero-leak environment variables.
             </p>
           </div>
         </div>
@@ -164,7 +164,7 @@ __pycache__/
         </div>
 
         {/* Interactive OpenAI Account Setup & Security Sandbox */}
-        <div className="card-paper p-6 sm:p-7 rounded-2xl border border-[#e2ddd6] space-y-6">
+        <div id="sec-sandbox-tools" className="card-paper p-6 sm:p-7 rounded-2xl border border-[#e2ddd6] space-y-6 scroll-mt-24">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-[#e2ddd6] gap-3">
             <div>
               <div className="inline-flex items-center space-x-1.5 font-mono text-[11px] font-bold text-purple-700 uppercase tracking-widest bg-purple-100/70 px-2.5 py-0.5 rounded-full mb-1">
@@ -416,14 +416,16 @@ __pycache__/
         </div>
 
         {/* Python SDK Reference Code */}
-        <CodeSnippet
-          code={pythonQuickstartCode}
-          language="python"
-          title="openai_quickstart.py (Official Python SDK v1.x)"
-          output={`API Response: An API token is a unique credential string that authenticates your software when accessing a remote cloud service.
+        <div id="sec-sdk-quickstart" className="scroll-mt-24">
+          <CodeSnippet
+            code={pythonQuickstartCode}
+            language="python"
+            title="openai_quickstart.py (Official Python SDK v1.x)"
+            output={`API Response: An API token is a unique credential string that authenticates your software when accessing a remote cloud service.
 
 [Status]: Model gpt-4o-mini executed in 240ms. Tokens used: Prompt=28, Completion=23, Total=51.`}
-        />
+          />
+        </div>
       </section>
     </div>
   );

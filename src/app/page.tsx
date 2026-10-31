@@ -54,17 +54,18 @@ export default function Home() {
     },
     {
       id: 'genai',
-      title: 'Gen AI Masterclass (Sections 14 & 15)',
-      subtitle: 'Section 14: Core Foundations & Section 15: API Setup & Integration',
-      href: '/genai/section-14',
+      title: 'Gen AI Masterclass & Developer Hub',
+      subtitle: 'Python Project Setup, Section 14: Core Foundations & Section 15: API Integration',
+      href: '/genai',
       icon: '✨',
-      version: 'Sec 14 & 15',
+      version: 'Setup, 14 & 15',
       badgeColor: 'bg-purple-600/10 text-purple-700 border-purple-600/20',
       accentColor: 'text-purple-700',
       borderHover: 'hover:border-purple-600/40 hover:shadow-purple-500/10',
       description:
-        'A comprehensive visual and architectural guide to modern Generative AI. Explore autoregressive next-token loops, custom Python BPE tokenizers, 2D semantic embedding vectors, sinusoidal waves, multi-head attention, and OpenAI API developer integration.',
+        'A comprehensive visual and architectural guide to modern Generative AI. Explore Python venv project setup, autoregressive next-token loops, custom Python BPE tokenizers, 2D semantic embedding vectors, sinusoidal waves, multi-head attention, and OpenAI API developer integration.',
       topics: [
+        '[Prereq] Python Project Setup: venv, uv, .env, .gitignore & VS Code',
         '[Sec 14] Understanding LLMs & GPT Architecture Stack',
         '[Sec 14] Autoregressive Next-Token Sampling Lab',
         '[Sec 14] Fundamentals of Tokenization & Custom BPE Python Lab',
@@ -75,7 +76,7 @@ export default function Home() {
         '[Sec 15] OpenAI Account Setup, Project Budgets & Secret Keys',
         '[Sec 15] Python SDK v1.x & Zero-Leak Security Architecture',
       ],
-      ctaText: 'Explore Gen AI Notes (Sec 14 & 15) →',
+      ctaText: 'Explore Gen AI Curriculum Hub →',
     },
   ];
 
