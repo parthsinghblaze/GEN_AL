@@ -3,6 +3,8 @@ import TopNav from '@/components/common/TopNav';
 import ProgressBar from '@/components/common/ProgressBar';
 import Sidebar, { NavGroup } from '@/components/common/Sidebar';
 import Section16PromptTypes from '@/components/genai/Section16PromptTypes';
+import Section16StructuredFewShot from '@/components/genai/Section16StructuredFewShot';
+import Section16ChainOfThought from '@/components/genai/Section16ChainOfThought';
 
 export default function Section16Page() {
   const navGroups: NavGroup[] = [
@@ -12,6 +14,8 @@ export default function Section16Page() {
       defaultOpen: true,
       items: [
         { id: 'sec-prompt-types', num: '01', label: 'Zero, One & Few-Shot Prompting' },
+        { id: 'sec-structured-fewshot', num: '02', label: 'Structured Output with Few-Shot' },
+        { id: 'sec-chain-of-thought', num: '03', label: 'Chain of Thought (CoT) Reasoning' },
       ],
     },
   ];
@@ -101,6 +105,12 @@ export default function Section16Page() {
 
             {/* Topic 01: Prompting Types: Zero-Shot, One-Shot & Few-Shot Prompting */}
             <Section16PromptTypes />
+
+            {/* Topic 02: Structured Output with Few-Shot Prompting */}
+            <Section16StructuredFewShot />
+
+            {/* Topic 03: Chain of Thought (CoT) for Reasoning */}
+            <Section16ChainOfThought />
           </div>
         </main>
       </div>
